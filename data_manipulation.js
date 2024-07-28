@@ -57,4 +57,44 @@ const arithchain = ((n1 - n2) * n3) % n4
 console.log("arithchain is " + arithchain)
 
 
+const GM = 175;
+
+const GC = 3;
+
+const trip = 1500;
+
+const hFE = (trip/30);
+const hFEt = (trip/55);
+
+const mFE = (trip/28);
+const mFEt = (trip/60);
+
+const lFE = (trip/23);
+const lFEt = (trip/75);
+
+function budget(GM) {
+    if ((hFE*3)<=GM && (mFE*3)<=GM && (lFE*3)<=GM) {
+        return "You have enough to cover the trip at any level of fuel efficiency"
+    } 
+    else {
+        if (mFE*3 <= GM) {
+            return "You can only complete the trip on high or medium fuel efficiency!"
+        }
+        else {
+            return "You can only complete the trup on high fuel efficiency!"
+        }
+    }
+}
+
+function FE(x) {
+    highFE = "On high fuel efficiency, the trip will take " + (x/55).toFixed(1) + " hours to get there and cost " + ((x/30)*GC).toFixed(2) + " dollars."
+    medFE = "On medium fuel efficiency, the trip will take " + (x/60).toFixed(1) + " hours to get there and cost " + ((x/28)*GC).toFixed(2) + " dollars."
+    lowFE = "On low fuel efficiency, the trip will take " + (x/75).toFixed(1) + " hours to get there and cost " + ((x/23)*GC).toFixed(2) + " dollars."
+    return highFE + "\n" + medFE + "\n" + lowFE + "\n"
+}
+
+
+
+console.log(FE(trip))
+console.log(budget(GM))
 
